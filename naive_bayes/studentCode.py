@@ -16,5 +16,7 @@ def submitAccuracy():
     accuracy = NBAccuracy(features_train, labels_train, features_test, labels_test)
     return accuracy
 
-accuracy = NBAccuracy(features_train, labels_train, features_test, labels_test)
+accuracy, clf = NBAccuracy(features_train, labels_train, features_test, labels_test)
 #accuracy = submitAccuracy()
+
+prettyPicture(clf, features_test, labels_test)

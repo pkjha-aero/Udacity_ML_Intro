@@ -11,7 +11,7 @@
     visually shows the decision boundary """
 
 import sys
-sys.path.append("../")
+#sys.path.append("../")
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture, output_image
 from ClassifyNB import classify

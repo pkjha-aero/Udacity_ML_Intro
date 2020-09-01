@@ -48,6 +48,7 @@ print "prediction time:", round(time()-t1, 3), "s"
 ### you might need to import an sklearn module
 accuracy = clf.score(features_test, labels_test)
 print('accuracy: ', accuracy)
+
 #########################################################
 
 

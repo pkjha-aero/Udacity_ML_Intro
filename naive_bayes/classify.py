@@ -22,4 +22,4 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
     ### you might need to import an sklearn module
     accuracy = clf.score(features_test, labels_test)
     print('accuracy: ', accuracy)
-    return accuracy
+    return accuracy, clf
