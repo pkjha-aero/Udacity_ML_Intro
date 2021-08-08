@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+import numpy as np
 
 def outlierCleaner(predictions, ages, net_worths):
     """
@@ -11,10 +11,15 @@ def outlierCleaner(predictions, ages, net_worths):
         each tuple is of the form (age, net_worth, error).
     """
     
-    cleaned_data = []
-
     ### your code goes here
-
+    error = (net_worths - predictions)**2
+    data_with_error = np.transpose([ages, net_worths, error])[0]
     
-    return cleaned_data
+    colIndexForError = 2
+    data_with_error_sorted = data_with_error[data_with_error[:,colIndexForError].argsort()]
+    
+    len_cleaned_data = int(0.9*len(data_with_error))
+    cleaned_data = data_with_error_sorted[:len_cleaned_data,:]
+    
+    return list(map(tuple, cleaned_data))
 
