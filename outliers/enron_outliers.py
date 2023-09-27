@@ -1,9 +1,14 @@
 #!/usr/bin/python
 import numpy as np
 import pickle
+#!/usr/bin/python3
+import os
+import joblib
 import sys
 import matplotlib.pyplot as plt
 sys.path.append("../tools/")
+import matplotlib.pyplot
+sys.path.append(os.path.abspath("../tools/"))
 from feature_format import featureFormat, targetFeatureSplit
 
 ### read in data dictionary, convert to numpy array

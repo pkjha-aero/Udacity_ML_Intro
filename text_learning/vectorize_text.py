@@ -1,11 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import os
-import pickle
+import joblib
 import re
 import sys
+import os
 
-sys.path.append( "../tools/" )
+sys.path.append(os.path.abspath("../tools/"))
 from parse_out_email_text import parseOutText
 
 """
@@ -46,10 +47,10 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
         temp_counter += 1
-        if temp_counter > 0:
-            path = os.path.join('..', path[:-1])
-            #print path
-            email = open(path, "r")
+        if temp_counter < 200:
+	        path = os.path.join('..', path[:-1])
+	        print(path)
+	        email = open(path, "r")
 
             ### use parseOutText to extract the text from the opened email
             text_from_email = parseOutText(email)

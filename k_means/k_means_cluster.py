@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python3
 
 """ 
     Skeleton code for k-means clustering mini-project.
@@ -7,7 +7,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
-sys.path.append("../tools/")
+sys.path.append(os.path.abspath("../tools/"))
 from feature_format import featureFormat, targetFeatureSplit
 
 def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature 1", f2_name="feature 2"):
@@ -32,6 +32,7 @@ def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature
 ### load in the dict of dicts containing all the data on each person in the dataset
 #data_file = open("../final_project/final_project_dataset.pkl", "rb")
 data_dict = pickle.load(open("../final_project/final_project_dataset.pkl", "rb"))
+data_dict = joblib.load( open("../final_project/final_project_dataset.pkl", "rb") )
 ### there's an outlier--remove it! 
 data_dict.pop("TOTAL", 0)
 

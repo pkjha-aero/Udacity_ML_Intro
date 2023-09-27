@@ -2,13 +2,13 @@
 import random
 import numpy
 import matplotlib.pyplot as plt
-import pickle
+import joblib
 
 from outlier_cleaner import outlierCleaner
 
 ### load up some practice data with outliers in it
-ages = pickle.load( open("practice_outliers_ages.pkl", "r") )
-net_worths = pickle.load( open("practice_outliers_net_worths.pkl", "r") )
+ages = joblib.load( open("./outliers/practice_outliers_ages.pkl", "rb") )
+net_worths = joblib.load( open("./outliers/practice_outliers_net_worths.pkl", "rb") )
 
 ### ages and net_worths need to be reshaped into 2D numpy arrays
 ### second argument of reshape command is a tuple of integers: (n_rows, n_columns)
@@ -52,8 +52,8 @@ try:
     predictions = reg.predict(ages_train)
     cleaned_data = outlierCleaner( predictions, ages_train, net_worths_train )
 except NameError:
-    print "your regression object doesn't exist, or isn't name reg"
-    print "can't make predictions to use in identifying outliers"
+    print("Your regression object doesn't exist, or isn't name reg")
+    print("Can't make predictions to use in identifying outliers")
 
 ### RE-TRAIN WITH CLEANED DATA
 ### only run this code if cleaned_data is returning data
@@ -70,13 +70,12 @@ if len(cleaned_data) > 0:
         reg.fit(ages_train, net_worths_train)
         plt.plot(ages_train, reg.predict(ages_train), color="black", label="Reg w/ Clean Data")
     except NameError:
-        print "you don't seem to have regression imported/created,"
-        print "   or else your regression object isn't named reg"
-        print "   either way, only draw the scatter plot of the cleaned data"
-     
-    plt.xlabel("Ages")
-    plt.ylabel("Net Worth")
-    plt.legend()
+        print("You don't seem to have regression imported/created,")
+        print("   or else your regression object isn't named reg")
+        print("   either way, only draw the scatter plot of the cleaned data")
+    plt.scatter(ages, net_worths)
+    plt.xlabel("ages")
+    plt.ylabel("net worths")
     plt.show()
     
     print "score of train data: ", reg.score(ages_train, net_worths_train)
@@ -85,5 +84,6 @@ if len(cleaned_data) > 0:
     print "Intercept of regression: ", reg.intercept_
 
 else:
-    print "outlierCleaner() is returning an empty list, no refitting to be done"
+    print("outlierCleaner() is returning an empty list, no refitting to be done")
+
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """ 
     This is the code to accompany the Lesson 1 (Naive Bayes) mini-project. 
@@ -51,4 +51,12 @@ print('accuracy: ', accuracy)
 
 #########################################################
 
+# t0 = time()
+# # < your clf.fit() line of code >
+# print("Training Time:", round(time()-t0, 3), "s")
 
+# t0 = time()
+# # < your clf.predict() line of code >
+# print("Predicting Time:", round(time()-t0, 3), "s")
+
+##############################################################

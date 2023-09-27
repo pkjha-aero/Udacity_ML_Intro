@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import pickle
 import numpy as np
@@ -13,30 +13,18 @@ from classifyDT import classify
 ### mini-project.
 words_file = "../text_learning/your_word_data.pkl" 
 authors_file = "../text_learning/your_email_authors.pkl"
-
-word_data = pickle.load( open(words_file, "r"))
-word_data_cleaned = []
-words_to_remove = ['sshacklensf', 'cgermannsf']
-for text_from_email in word_data:
-    for signature_word in words_to_remove:
-        text_from_email = text_from_email.replace(signature_word, '')
-    word_data_cleaned.append(text_from_email)
-word_data = word_data_cleaned
-
-authors = pickle.load( open(authors_file, "r") )
+word_data = joblib.load( open(words_file, "r"))
+authors = joblib.load( open(authors_file, "r") )
 
 ### test_size is the percentage of events assigned to the test set (the
 ### remainder go into training)
 ### feature matrices changed to dense representations for compatibility with
 ### classifier functions in versions 0.15.2 and earlier
-from sklearn import cross_validation
-features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(word_data, authors, test_size=0.1, random_state=42)
+from sklearn.model_selection import train_test_split
+features_train, features_test, labels_train, labels_test = train_test_split(word_data, authors, test_size=0.1, random_state=42)
 
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.feature_selection import SelectPercentile, f_classif
-"""
-vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
-                            stop_words='english')
+vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5, stop_words='english')
 features_train = vectorizer.fit_transform(features_train)
 features_test  = vectorizer.transform(features_test).toarray()
 """

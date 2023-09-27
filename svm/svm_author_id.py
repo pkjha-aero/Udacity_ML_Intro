@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 """ 
     This is the code to accompany the Lesson 2 (SVM) mini-project.
@@ -26,7 +26,6 @@ features_train, features_test, labels_train, labels_test = preprocess()
 #labels_train = labels_train[:len(labels_train)/100]
 
 #########################################################
-### your code goes here ###
 
 #########################################################
 from sklearn.svm import SVC
@@ -38,6 +37,7 @@ clf = SVC(kernel="rbf", C = 10000.0)
 #clf = SVC(kernel="rbf", gamma = 1000.0, C = 1.0)
 #clf = SVC(kernel="poly", gamma = 1.0)
 
+#########################################################
 
 t0 = time()
 clf.fit(features_train, labels_train)
