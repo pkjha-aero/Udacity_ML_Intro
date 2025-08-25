@@ -1,10 +1,13 @@
 #!/usr/bin/python
+from __future__ import absolute_import
+from __future__ import print_function
 import random
 import numpy
 import matplotlib.pyplot as plt
 import joblib
 
 from outlier_cleaner import outlierCleaner
+from six.moves import zip
 
 ### load up some practice data with outliers in it
 ages = joblib.load( open("./practice_outliers_ages.pkl", "rb") )
@@ -26,10 +29,10 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit (ages_train, net_worths_train)
 
-print "score of train data: ", reg.score(ages_train, net_worths_train)
-print "score of test data : ", reg.score(ages_test, net_worths_test)
-print "Slope of regression: ", reg.coef_
-print "Intercept of regression: ", reg.intercept_
+print("score of train data: ", reg.score(ages_train, net_worths_train))
+print("score of test data : ", reg.score(ages_test, net_worths_test))
+print("Slope of regression: ", reg.coef_)
+print("Intercept of regression: ", reg.intercept_)
 
 ### PLOTS
 train_color = "b"
@@ -58,11 +61,11 @@ except NameError:
 ### RE-TRAIN WITH CLEANED DATA
 ### only run this code if cleaned_data is returning data
 if len(cleaned_data) > 0:
-    ages_train, net_worths_train, errors = zip(*cleaned_data)
+    ages_train, net_worths_train, errors = list(zip(*cleaned_data))
     ages_train       = numpy.reshape( numpy.array(ages_train), (len(ages_train), 1))
     net_worths_train = numpy.reshape( numpy.array(net_worths_train), (len(net_worths_train), 1))
 
-    print "Dealing with cleaned data now... ..."
+    print("Dealing with cleaned data now... ...")
     plt.scatter(ages_train, net_worths_train, color=train_color, label="train")
     plt.scatter(ages_test, net_worths_test, color=test_color, label="test")
     ### refit your cleaned data!
@@ -78,10 +81,10 @@ if len(cleaned_data) > 0:
     plt.ylabel("net worths")
     plt.show()
     
-    print "score of train data: ", reg.score(ages_train, net_worths_train)
-    print "score of test data : ", reg.score(ages_test, net_worths_test)
-    print "Slope of regression: ", reg.coef_
-    print "Intercept of regression: ", reg.intercept_
+    print("score of train data: ", reg.score(ages_train, net_worths_train))
+    print("score of test data : ", reg.score(ages_test, net_worths_test))
+    print("Slope of regression: ", reg.coef_)
+    print("Intercept of regression: ", reg.intercept_)
 
 else:
     print("outlierCleaner() is returning an empty list, no refitting to be done")

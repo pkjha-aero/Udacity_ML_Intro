@@ -8,6 +8,8 @@ Created on Fri Aug 13 19:03:24 2021
 
 #!/usr/bin/python
 
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import zipfile
@@ -37,7 +39,7 @@ for email_message in os.listdir("emails"):
     message.close()
 
 for item in data_dict:
-    print item, data_dict[item]
+    print(item, data_dict[item])
     
 #######################################################    
 def submitData():

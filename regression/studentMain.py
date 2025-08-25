@@ -7,6 +7,7 @@ Created on Thu Aug  5 22:53:12 2021
 """
 
 #!/usr/bin/python
+from __future__ import absolute_import
 import sys
 import numpy
 import matplotlib

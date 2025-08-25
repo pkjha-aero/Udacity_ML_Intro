@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
 def classify(features_train, labels_train):   
     ### import the sklearn module for GaussianNB
     ### create classifier

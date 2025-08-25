@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
+from __future__ import print_function
 def NBAccuracy(features_train, labels_train, features_test, labels_test):
     """ compute the accuracy of your Naive Bayes classifier """
     ### import the sklearn module for GaussianNB
@@ -21,5 +23,5 @@ def NBAccuracy(features_train, labels_train, features_test, labels_test):
     ### where we just print the accuracy
     ### you might need to import an sklearn module
     accuracy = clf.score(features_test, labels_test)
-    print('accuracy: ', accuracy)
+    print(('accuracy: ', accuracy))
     return accuracy, clf

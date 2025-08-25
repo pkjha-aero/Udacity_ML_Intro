@@ -12,9 +12,12 @@
     You fill in the regression code where indicated:
 """    
 
+from __future__ import absolute_import
+from __future__ import print_function
 import os
 import sys
 import joblib
+from six.moves import zip
 sys.path.append(os.path.abspath("../tools/"))
 from feature_format import featureFormat, targetFeatureSplit
 dictionary = joblib.load( open("../final_project/final_project_dataset_modified.pkl", "rb") )
@@ -42,10 +45,10 @@ from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit (feature_train, target_train)
 
-print "score of train data: ", reg.score(feature_train, target_train)
-print "score of test data : ", reg.score(feature_test, target_test)
-print "Slope of regression: ", reg.coef_
-print "Intercept of regression: ", reg.intercept_
+print("score of train data: ", reg.score(feature_train, target_train))
+print("score of test data : ", reg.score(feature_test, target_test))
+print("Slope of regression: ", reg.coef_)
+print("Intercept of regression: ", reg.intercept_)
 
 ### draw the scatterplot, with color-coded training and testing points
 import matplotlib.pyplot as plt
@@ -67,11 +70,11 @@ except NameError:
 # Swap train and test data
 reg.fit(feature_test, target_test)
 plt.plot(feature_train, reg.predict(feature_train), color="k")
-print "After Swapping train and test data -> "
-print "score of train data : ", reg.score(feature_test, target_test)
-print "score of test data: ", reg.score(feature_train, target_train)
-print "Slope of regression: ", reg.coef_
-print "Intercept of regression: ", reg.intercept_
+print("After Swapping train and test data -> ")
+print("score of train data : ", reg.score(feature_test, target_test))
+print("score of test data: ", reg.score(feature_train, target_train))
+print("Slope of regression: ", reg.coef_)
+print("Intercept of regression: ", reg.intercept_)
 
 plt.xlabel(features_list[1])
 plt.ylabel(features_list[0])

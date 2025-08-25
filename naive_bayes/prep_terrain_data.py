@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 #!/usr/bin/python
+from __future__ import absolute_import
 import random
+from six.moves import range
+from six.moves import zip
 
 
 def makeTerrainData(n_points=1000):

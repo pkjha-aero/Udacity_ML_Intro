@@ -6,6 +6,7 @@ Created on Thu Aug  5 22:54:00 2021
 @author: pkjha
 """
 
+from __future__ import absolute_import
 def studentReg(ages_train, net_worths_train):
     ### import the sklearn regression module, create, and train your regression
     from sklearn.linear_model import LinearRegression

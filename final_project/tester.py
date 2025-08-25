@@ -10,10 +10,13 @@
     that process should happen at the end of poi_id.py
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 import pickle
 import sys
 from sklearn.model_selection import StratifiedShuffleSplit
 import os
+from six.moves import zip
 
 sys.path.append(os.path.abspath(("../tools/")))
 from feature_format import featureFormat, targetFeatureSplit
@@ -69,11 +72,11 @@ def test_classifier(clf, dataset, feature_list, folds = 1000):
         f1 = 2.0 * true_positives/(2*true_positives + false_positives+false_negatives)
         f2 = (1+2.0*2.0) * precision*recall/(4*precision + recall)
         print(clf)
-        print(PERF_FORMAT_STRING.format(accuracy, precision, recall, f1, f2, display_precision = 5))
-        print(RESULTS_FORMAT_STRING.format(total_predictions, true_positives, false_positives, false_negatives, true_negatives))
+        print((PERF_FORMAT_STRING.format(accuracy, precision, recall, f1, f2, display_precision = 5)))
+        print((RESULTS_FORMAT_STRING.format(total_predictions, true_positives, false_positives, false_negatives, true_negatives)))
         print("")
     except:
-        print("Got a divide by zero when trying out:", clf)
+        print(("Got a divide by zero when trying out:", clf))
         print("Precision or recall may be undefined due to a lack of true positive predicitons.")
 
 CLF_PICKLE_FILENAME = "my_classifier.pkl"

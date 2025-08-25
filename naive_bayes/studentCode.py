@@ -1,6 +1,7 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
 from class_vis import prettyPicture
 from prep_terrain_data import makeTerrainData
 from classify import NBAccuracy

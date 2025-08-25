@@ -1,8 +1,10 @@
 #!/usr/bin/python
 
+from __future__ import absolute_import
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
 from class_vis import prettyPicture
+from six.moves import range
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 

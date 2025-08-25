@@ -4,7 +4,10 @@
 #!/usr/bin/python
 
 #from udacityplots import *
+from __future__ import absolute_import
+from __future__ import print_function
 import warnings
+from six.moves import range
 warnings.filterwarnings("ignore")
 
 import matplotlib 
@@ -60,4 +63,4 @@ def output_image(name, format, bytes):
     data['name'] = name
     data['format'] = format
     data['bytes'] = base64.encodestring(bytes)
-    print image_start+json.dumps(data)+image_end
+    print(image_start+json.dumps(data)+image_end)

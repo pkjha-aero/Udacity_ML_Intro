@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 sys.path.append("../naive_bayes/")
 from class_vis import prettyPicture
@@ -41,6 +43,6 @@ acc = accuracy_score(pred, labels_test)
 def submitAccuracy():
     return acc
 """
-print('Accuracy Score: ', acc)
+print(('Accuracy Score: ', acc))
 
 prettyPicture(clf, features_test, labels_test)

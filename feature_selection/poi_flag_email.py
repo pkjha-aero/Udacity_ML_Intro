@@ -13,6 +13,7 @@ Created on Fri Aug 13 19:00:26 2021
 ### indicating if a given email is from a POI
 ###
 
+from __future__ import absolute_import
 import sys
 import reader
 import poi_emails

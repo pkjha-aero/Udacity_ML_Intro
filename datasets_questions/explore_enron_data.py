@@ -15,6 +15,7 @@
     
 """
 
+from __future__ import absolute_import
 import joblib
 
 enron_data = joblib.load(open("../final_project/final_project_dataset.pkl", "rb"))

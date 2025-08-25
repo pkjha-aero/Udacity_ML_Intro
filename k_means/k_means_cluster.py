@@ -3,6 +3,8 @@
 """ 
     Skeleton code for k-means clustering mini-project.
 """
+from __future__ import absolute_import
+from __future__ import print_function
 import pickle
 import numpy as np
 import matplotlib.pyplot as plt
@@ -83,12 +85,12 @@ plt.show()
 from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=2, random_state=0)
 kmeans.fit(finance_features)
-print ("k-means labels: ", kmeans.labels_)
-print ("k-means cluster centers: ", kmeans.cluster_centers_)
+print(("k-means labels: ", kmeans.labels_))
+print(("k-means cluster centers: ", kmeans.cluster_centers_))
 
 pred = kmeans.predict(finance_features)
 
-print ("k-means labels - pred: ", kmeans.labels_ - pred)
+print(("k-means labels - pred: ", kmeans.labels_ - pred))
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file

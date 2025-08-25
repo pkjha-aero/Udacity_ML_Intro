@@ -6,6 +6,8 @@ Created on Fri Aug 13 20:07:47 2021
 @author: pkjha
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 import pickle
 from get_data import getData
 from math import isnan
@@ -42,20 +44,20 @@ data_dict = getData()
 
 submit_dict = {}
 for name in data_dict:
-    print 'name: ', name
+    print('name: ', name)
     data_point = data_dict[name]
 
     from_poi_to_this_person = data_point["from_poi_to_this_person"]
     to_messages = data_point["to_messages"]
     fraction_from_poi = computeFraction( from_poi_to_this_person, to_messages )
-    print 'fraction_from_poi:', fraction_from_poi
+    print('fraction_from_poi:', fraction_from_poi)
     data_point["fraction_from_poi"] = fraction_from_poi
 
 
     from_this_person_to_poi = data_point["from_this_person_to_poi"]
     from_messages = data_point["from_messages"]
     fraction_to_poi = computeFraction( from_this_person_to_poi, from_messages )
-    print 'fraction_to_poi: ', fraction_to_poi
+    print('fraction_to_poi: ', fraction_to_poi)
     data_point["fraction_to_poi"] = fraction_to_poi
     
     submit_dict[name]={"from_poi_to_this_person":fraction_from_poi,

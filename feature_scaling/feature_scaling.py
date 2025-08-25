@@ -1,4 +1,6 @@
 #!/usr/bin/python 
+from __future__ import absolute_import
+from __future__ import print_function
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 
@@ -6,16 +8,16 @@ scaler = MinMaxScaler()
 weights = np.array([[115.0], [140.0], [175.0]])
 scaler.fit(weights)
 
-print 'Original weights: \n', weights
+print('Original weights: \n', weights)
 
-print 'n_samples_seen_: ', scaler.n_samples_seen_
-print 'Data Max: ', scaler.data_max_
-print 'Data Min: ', scaler.data_min_
-print 'Data Range: ', scaler.data_range_
-print 'Data Scale: ', scaler.scale_
+print('n_samples_seen_: ', scaler.n_samples_seen_)
+print('Data Max: ', scaler.data_max_)
+print('Data Min: ', scaler.data_min_)
+print('Data Range: ', scaler.data_range_)
+print('Data Scale: ', scaler.scale_)
 
 scaled_weights = scaler.transform(weights)
-print 'Scaled   weights: \n', scaled_weights
+print('Scaled   weights: \n', scaled_weights)
 
 
 import pickle
@@ -68,21 +70,21 @@ finance_features = np.array(finance_features)
 #finance_features[:, 1] = finance_features[:, 1]/ (34348384.0 - 3285.0)
 scaler.fit(finance_features)
 
-print 'Original weights: \n', finance_features
+print('Original weights: \n', finance_features)
 
-print 'n_samples_seen_: ', scaler.n_samples_seen_
-print 'Data Max: ', scaler.data_max_
-print 'Data Min: ', scaler.data_min_
-print 'Data Range: ', scaler.data_range_
-print 'Data Scale: ', scaler.scale_
+print('n_samples_seen_: ', scaler.n_samples_seen_)
+print('Data Max: ', scaler.data_max_)
+print('Data Min: ', scaler.data_min_)
+print('Data Range: ', scaler.data_range_)
+print('Data Scale: ', scaler.scale_)
 
 finance_features = scaler.transform(finance_features)
-print 'Scaled   weights: \n', finance_features
+print('Scaled   weights: \n', finance_features)
 
 weights = np.array([[200000.0, 1000000.0]])
 scaled_weights = scaler.transform(weights)
-print 'Original weights: \n', weights
-print 'Scaled   weights: \n', scaled_weights
+print('Original weights: \n', weights)
+print('Scaled   weights: \n', scaled_weights)
 
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
@@ -115,12 +117,12 @@ plt.show()
 from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=2, random_state=0)
 kmeans.fit(finance_features)
-print "k-means labels: ", kmeans.labels_
-print "k-means cluster centers: ", kmeans.cluster_centers_
+print("k-means labels: ", kmeans.labels_)
+print("k-means cluster centers: ", kmeans.cluster_centers_)
 
 pred = kmeans.predict(finance_features)
 
-print "k-means labels - pred: ", kmeans.labels_ - pred
+print("k-means labels - pred: ", kmeans.labels_ - pred)
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
@@ -129,7 +131,7 @@ plt.figure()
 try:
     Draw(pred, finance_features[:, [0, 1]], poi, mark_poi=False, name="clusters1.pdf", f1_name=feature_1, f2_name=feature_2)
 except NameError:
-    print "no predictions object named pred found, no clusters to plot"
+    print("no predictions object named pred found, no clusters to plot")
   
 """
 plt.figure()

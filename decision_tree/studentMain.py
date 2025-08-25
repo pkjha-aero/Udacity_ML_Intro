@@ -8,6 +8,8 @@ Created on Sun Jul 25 00:43:49 2021
 
 """ lecture and example code for decision tree unit """
 
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 sys.path.append("../tools/")
 sys.path.append("../naive_bayes/")
@@ -34,7 +36,7 @@ pred = clf.predict(features_test)
 #acc = accuracy_score(pred, labels_test)
 
 accuracy = clf.score(features_test, labels_test)
-print('accuracy: ', accuracy)
+print(('accuracy: ', accuracy))
 
 #### grader code, do not modify below this line
 

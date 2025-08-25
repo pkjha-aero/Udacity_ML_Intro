@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import absolute_import
 import numpy as np
 import pickle
 #!/usr/bin/python3
@@ -27,7 +28,7 @@ plt.ylabel(features_list[1])
 plt.draw()
 
 ### your code below
-keys = np.array(data_dict.keys())
+keys = np.array(list(data_dict.keys()))
 data_without_keys = np.array([[float(data_dict[person]["salary"]), float(data_dict[person]["bonus"])] for person in keys])
 
 colIndex = 1

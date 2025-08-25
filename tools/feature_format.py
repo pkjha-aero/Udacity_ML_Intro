@@ -31,6 +31,8 @@
 """
 
 
+from __future__ import absolute_import
+from __future__ import print_function
 import numpy as np
 
 def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys = False):
@@ -59,7 +61,7 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
     elif sort_keys:
         keys = sorted(dictionary.keys())
     else:
-        keys = dictionary.keys()
+        keys = list(dictionary.keys())
 
     for key in keys:
         tmp_list = []
@@ -67,7 +69,7 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
             try:
                 dictionary[key][feature]
             except KeyError:
-                print("Error: Key ", feature, " Not Present")
+                print(("Error: Key ", feature, " Not Present"))
                 return
             value = dictionary[key][feature]
             if value == 'NaN' and remove_NaN:

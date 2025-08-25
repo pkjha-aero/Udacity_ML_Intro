@@ -9,6 +9,7 @@
 
     After that, it's not our code anymore--it's yours!
 """
+from __future__ import absolute_import
 import os
 import joblib
 import sys

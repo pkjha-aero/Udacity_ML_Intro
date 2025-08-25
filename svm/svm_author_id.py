@@ -8,6 +8,8 @@
     Chris has label 1
 """
     
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 from time import time
 sys.path.append("../tools/")
@@ -41,17 +43,17 @@ clf = SVC(kernel="rbf", C = 10000.0)
 
 t0 = time()
 clf.fit(features_train, labels_train)
-print "training time:", round(time()-t0, 3), "s"
+print("training time:", round(time()-t0, 3), "s")
 
 ### use the trained classifier to predict labels for the test features
 t1 = time()
 pred = clf.predict(features_test)
-print "prediction time:", round(time()-t1, 3), "s"
+print("prediction time:", round(time()-t1, 3), "s")
 
 ### calculate and return the accuracy on the test data
 from sklearn.metrics import accuracy_score
 acc = accuracy_score(pred, labels_test)
 
-print('Accuracy Score: {}'.format(acc))
+print(('Accuracy Score: {}'.format(acc)))
 
 #prettyPicture(clf, features_test[:,0], labels_test)

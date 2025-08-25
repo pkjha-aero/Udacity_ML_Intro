@@ -10,6 +10,7 @@
     boundary found in the lesson video, and make a plot that
     visually shows the decision boundary """
 
+from __future__ import absolute_import
 import sys
 #sys.path.append("../")
 from prep_terrain_data import makeTerrainData
@@ -18,6 +19,7 @@ from ClassifyNB import classify
 
 import numpy as np
 import pylab as pl
+from six.moves import range
 
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()

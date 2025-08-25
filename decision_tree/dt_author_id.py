@@ -8,6 +8,8 @@
     Chris has label 1
 """
     
+from __future__ import absolute_import
+from __future__ import print_function
 import sys
 from time import time
 sys.path.append("../tools/")
@@ -35,7 +37,7 @@ pred = clf.predict(features_test)
 #acc = accuracy_score(pred, labels_test)
 
 accuracy = clf.score(features_test, labels_test)
-print('accuracy: ', accuracy)
+print(('accuracy: ', accuracy))
 
 #### grader code, do not modify below this line
 
